@@ -3,15 +3,15 @@
 
 int main(void)
 {
-	int N=3;
+	std::cout << "combien de livres : " << std::endl;
+	std::string str;
+	int N;
+	std::getline(std::cin, str);
+	std::istringstream(str) >> N;
+
 	Book *stock=createLibrary(N);
-	for(int i=0; i<N; ++i)
-	{
-		std::cout << "position du livre \t" << (i+1) ;
-		stock[i].DisplayBook();
-	}
+	DisplayAllBook(stock, N);
 
 	delete[] stock;
+	return(0);
 }
-
-//faire un check du digit pour le nombre de pages

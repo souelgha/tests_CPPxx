@@ -14,13 +14,13 @@ class Book
 		Book();
 		Book(std::string titre, int pags);
 		~Book();
-		void setTittle(std::string titre);
-		void setPages(int pags);
+		void setpara(std::string titre, int pags);
 		std::string getTittle(void);
 		int getPages(void);
-		void DisplayBook(void);
+		void DisplayBook(void) ;
 };
 
 Book *createLibrary(int N);
+void DisplayAllBook(Book *stock, int N);
 
 #endif
