@@ -45,14 +45,30 @@ Book *createLibrary(int N)
 	std::string str1, str2;
 	int numpages;
 	str1="", str2="";
+	std::cout << "le nombre de livres a mettre en stock est : " << N << std::endl;
 	for(int i = 0; i < N; ++i)
 	{
+		
 		std::cout << "Entrez le titre du livre numero "<< (i + 1) << std::endl;
 		std::getline(std::cin, str1);
-		std::cout << "Entrez le nombre de pages du livre:" << std::endl;
-		std::getline(std::cin, str2);
+		while(str2=="")
+		{
+			std::cout << "Entrez le nombre de pages du livre:" << std::endl;
+			std::getline(std::cin, str2);
+			for(size_t j=0; j < str2.length(); ++j)
+			{
+				if(!std::isdigit(str2[j]))
+				{
+					std::cout << "ERROR : entrer un nombre entier" << std::endl;
+					str2="";
+					break;
+				}
+			}
+			
+		}
 		std::istringstream(str2) >> numpages;
 		inventory[i]= Book(str1, numpages);
+		str2="";
 	}
 	return(inventory);
 }
