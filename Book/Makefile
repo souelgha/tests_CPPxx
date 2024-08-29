@@ -1,13 +1,13 @@
 NAME = library
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
-SRCS = Book.cpp
+SRCS = Book.cpp main.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-all = $NAME
+all: $(NAME)
 
-$NAME : S(OBJS)
+$(NAME) : $(OBJS)
 	c++ $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o : %.cpp
@@ -15,6 +15,7 @@ $NAME : S(OBJS)
 
 clean:
 	@rm -f $(OBJS)
+
 fclean : clean
 	@rm -f $(NAME)
 

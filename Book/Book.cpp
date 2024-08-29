@@ -34,8 +34,8 @@ int Book::getPages(void)
 
 void Book::DisplayBook(void)
 {
-	std::cout << "Titre du livre:\t" << Book::getTittle() ;
-	std::cout << "nombre de pages:\t" << Book::getPages() << std::endl;
+	std::cout << "\tTitre du livre:\t" << Book::getTittle() ;
+	std::cout << "\tnombre de pages:\t" << Book::getPages() << std::endl;
 }
 
 Book *createLibrary(int N)
@@ -47,13 +47,12 @@ Book *createLibrary(int N)
 	str1="", str2="";
 	for(int i = 0; i < N; ++i)
 	{
-		std::cout << "entrez le titre du livre :"<< std::endl;
+		std::cout << "Entrez le titre du livre numero "<< (i + 1) << std::endl;
 		std::getline(std::cin, str1);
-		std::cout << "entrer le nombre de pages du livre:" << std::endl;
+		std::cout << "Entrez le nombre de pages du livre:" << std::endl;
 		std::getline(std::cin, str2);
 		std::istringstream(str2) >> numpages;
 		inventory[i]= Book(str1, numpages);
-
 	}
-
+	return(inventory);
 }
